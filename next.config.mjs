@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+// import withFonts from "next-fonts";
+
+const nextConfig = {
+  images: {
+    domains: ["picsum.photos"],
+  },
+};
 
 export default nextConfig;
