@@ -3,7 +3,6 @@ import Image from "next/image";
 import NavBar from "./navbar";
 import { PT_Mono } from "next/font/google";
 import { useCallback, useEffect, useState } from "react";
-import localFont from "next/dist/compiled/@next/font/dist/local";
 import Link from "next/link";
 import {
   Accordion,
@@ -378,14 +377,9 @@ const GridItem: React.FC<GridItemProps> = ({ src, title, description }) => {
 const GridElement: React.FC<GridItemProps> = ({ src, title, description }) => {
   return (
     <div className="rounded-lg overflow-hidden shadow-2xl shadow-blue-800">
-      <Image
-        alt="Grid Item 1"
-        className="w-full h-96 object-cover"
-        height={400}
-        src={src}
-        style={{}}
-        width={400}
-      />
+      <div className="w-full aspect-square relative">
+        <Image alt="Grid Item 1" objectFit="cover" fill src={src} style={{}} />
+      </div>
       <div className="p-4">
         <h3 className="text-4xl text-blue-500 mt-6">{title}</h3>
         <p className="text-xl text-slate-200">{description}</p>
